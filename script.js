@@ -17,17 +17,17 @@ function tpl_dokuwiki_mobile(){
     // determine our device pattern
     // TODO: consider moving into dokuwiki core
     switch (screen_mode) {
-        case '1':
-            if (device_class.match(/tablet/)) return;
-            device_class = 'mobile tablet';
-            break;
-        case '2':
-            if (device_class.match(/phone/)) return;
-            device_class = 'mobile phone';
-            break;
-        default:
-            if (device_class == 'desktop') return;
-            device_class = 'desktop';
+    case '1':
+        if (device_class.match(/tablet/)) return;
+        device_class = 'mobile tablet';
+        break;
+    case '2':
+        if (device_class.match(/phone/)) return;
+        device_class = 'mobile phone';
+        break;
+    default:
+        if (device_class == 'desktop') return;
+        device_class = 'desktop';
     }
 
     jQuery('html').removeClass(device_classes).addClass(device_class);
@@ -64,11 +64,11 @@ jQuery(function(){
 
     tpl_dokuwiki_mobile();
     jQuery(window).on('resize',
-        function(){
-            if (resizeTimer) clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
-        }
-    );
+                      function(){
+                          if (resizeTimer) clearTimeout(resizeTimer);
+                          resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
+                      }
+                     );
 
     // increase sidebar length to match content (desktop mode only)
     var $sidebar = jQuery('.desktop #dokuwiki__aside');
@@ -83,45 +83,44 @@ jQuery(function(){
  * Replace all OOTB DokuWiki toolbar icon with Material Design Icons
  */
 if (typeof window.toolbar !== 'undefined') {
-    if (JSINFO.bootstrap3.config.useAlternativeToolbarIcons) {
-        var original_toolbar = window.toolbar;
-        var new_toolbar = new Array();
+    var original_toolbar = window.toolbar;
+    var new_toolbar = new Array();
 
-        var icons = {
-            'bold.png'       : 'format-bold.svg',
-            'chars.png'      : 'omega.svg',
-            'h.png'          : 'format-header-pound.svg',
-            'h1.png'         : 'format-header-1.svg',
-            'hequal.png'     : 'format-header-equal.svg',
-            'hminus.png'     : 'format-header-decrease.svg',
-            'hplus.png'      : 'format-header-increase.svg',
-            'hr.png'         : 'minus.svg', // ??
-            'image.png'      : 'image.svg',
-            'italic.png'     : 'format-italic.svg',
-            'link.png'       : 'link.svg',
-            'linkextern.png' : 'link-variant.svg', // ??
-            'mono.png'       : 'format-title.svg',
-            'ol.png'         : 'format-list-numbered.svg',
-            'sig.png'        : 'signature.svg',
-            'smiley.png'     : 'emoticon-outline.svg',
-            'strike.png'     : 'format-strikethrough.svg',
-            'ul.png'         : 'format-list-bulleted.svg',
-            'underline.png'  : 'format-underline.svg',
-        };
+    var icons = {
+        'bold.png'       : 'format-bold.svg',
+        'chars.png'      : 'omega.svg',
+        'h.png'          : 'format-header-pound.svg',
+        'h1.png'         : 'format-header-1.svg',
+        'hequal.png'     : 'format-header-equal.svg',
+        'hminus.png'     : 'format-header-decrease.svg',
+        'hplus.png'      : 'format-header-increase.svg',
+        'hr.png'         : 'minus.svg', // ??
+        'image.png'      : 'image.svg',
+        'italic.png'     : 'format-italic.svg',
+        'link.png'       : 'link.svg',
+        'linkextern.png' : 'link-variant.svg', // ??
+        'mono.png'       : 'format-title.svg',
+        'ol.png'         : 'format-list-numbered.svg',
+        'sig.png'        : 'signature.svg',
+        'smiley.png'     : 'emoticon-outline.svg',
+        'strike.png'     : 'format-strikethrough.svg',
+        'ul.png'         : 'format-list-bulleted.svg',
+        'underline.png'  : 'format-underline.svg',
+        '../../plugins/edittable/images/add_table.png' : 'table-plus.svg',
+    };
 
-        for (i in window.toolbar) {
-            // Replace all icons in "H(eaders)" picker
-            if (window.toolbar[i].icon == 'h.png') {
-                for (x in window.toolbar[i].list) {
-                    var hn = parseInt(x) + 1;
-                    window.toolbar[i].list[x].icon = '../../tpl/adoradark/assets/mdi/svg/format-header-' + hn + '.svg';
-                }
+    for (i in window.toolbar) {
+        // Replace all icons in "H(eaders)" picker
+        if (window.toolbar[i].icon == 'h.png') {
+            for (x in window.toolbar[i].list) {
+                var hn = parseInt(x) + 1;
+                window.toolbar[i].list[x].icon = '../../tpl/adoradark/assets/mdi/svg/format-header-' + hn + '.svg';
             }
+        }
 
-            for (icon in icons) {
-                if (window.toolbar[i].icon == icon) {
-                    window.toolbar[i].icon = '../../tpl/adoradark/assets/mdi/svg/' + icons[icon];
-                }
+        for (icon in icons) {
+            if (window.toolbar[i].icon == icon) {
+                window.toolbar[i].icon = '../../tpl/adoradark/assets/mdi/svg/' + icons[icon];
             }
         }
     }
