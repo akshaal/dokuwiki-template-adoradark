@@ -26,14 +26,23 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
     <!-- Quick and dirty styling...added by akshaal -->
     <style>
-      .dokuwiki tool__bar {
+      .dokuwiki .tool__bar {
         filter: invert(100%);
+      }
+
+      .dokuwiki input.missing {
+        background-color: #400;
       }
 
       .dokuwiki textarea, input {
         background: black;
         color: white;
         white-space: pre;
+      }
+
+      .dokuwiki button {
+        background-color: #004;
+        color: white;
       }
 
       .dokuwiki textarea[disabled], input[disabled] {
