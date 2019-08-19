@@ -25,7 +25,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
 
     <!-- Quick and dirty styling...added by akshaal -->
-    <styke>
+    <style>
       .handsontable th, .handsontable td {
         border-right: 1px solid #636363;
         border-bottom: 1px solid #636363;
@@ -99,7 +99,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         background: #636363;
         color: #999;
       }
-    </styke>
+    </style>
 </head>
 
 <body>
