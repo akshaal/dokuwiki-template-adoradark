@@ -7,39 +7,24 @@
 if (!defined('DOKU_INC')) die();
 ?>
 
-<!-- ********** HEADER ********** -->
-<div id="dokuwiki__header"><div class="pad group">
-
+<!-- ********** HEADER ********** -->a
+<div id="dokuwiki__header" style="padding-bottom: 0; padding-top: 0"><div class="pad group">
     <?php tpl_includeFile('header.html') ?>
 
-    <div class="headings group">
-        <ul class="a11y skip">
-            <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-        </ul>
+    <div class="tools group" style="white-space: nowrap; width: 100%; display: flex;">
+        <?php tpl_searchform(); ?>
 
-        <h1><?php
-            // get logo either out of the template images folder or data/media folder
-            $logoSize = array();
-            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+        <div id="dokuwiki__usertools" style="position: static;">
+            <div style="display: flex; flex-wrap: wrap;">
+                <?php
+                    tpl_toolsevent('sitetools', array(
+                        tpl_action('recent', true, 'li', true),
+                        tpl_action('media', true, 'li', true),
+                        tpl_action('index', true, 'li', true)
+                    ));
+                ?>
 
-            // display logo and wiki title in a link to the home page
-            tpl_link(
-                wl(),
-                '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
-                'accesskey="h" title="[H]"'
-            );
-        ?></h1>
-        <?php if ($conf['tagline']): ?>
-            <p class="claim"><?php echo $conf['tagline']; ?></p>
-        <?php endif ?>
-    </div>
-
-    <div class="tools group">
-        <!-- USER TOOLS -->
-        <?php if ($conf['useacl']): ?>
-            <div id="dokuwiki__usertools">
-                <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
-                <ul>
+                <?php if ($conf['useacl']): ?>
                     <?php
                         if (!empty($_SERVER['REMOTE_USER'])) {
                             echo '<li class="user">';
@@ -53,28 +38,13 @@ if (!defined('DOKU_INC')) die();
                             tpl_action('login', true, 'li', true)
                         ));
                     ?>
-                </ul>
+                <?php endif ?>
             </div>
-        <?php endif ?>
-
-        <!-- SITE TOOLS -->
-        <div id="dokuwiki__sitetools">
-            <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-            <?php tpl_searchform(); ?>
-            <div class="mobileTools">
-                <?php tpl_actiondropdown($lang['tools']); ?>
-            </div>
-            <ul>
-                <?php
-                    tpl_toolsevent('sitetools', array(
-                        tpl_action('recent', true, 'li', true),
-                        tpl_action('media', true, 'li', true),
-                        tpl_action('index', true, 'li', true)
-                    ));
-                ?>
-            </ul>
         </div>
 
+        <div class="mobileTools">
+            <?php tpl_actiondropdown($lang['tools']); ?>
+        </div>
     </div>
 
     <!-- BREADCRUMBS -->
@@ -88,8 +58,6 @@ if (!defined('DOKU_INC')) die();
             <?php endif ?>
         </div>
     <?php endif ?>
-
-
 
     <hr class="a11y" />
 </div></div><!-- /header -->
