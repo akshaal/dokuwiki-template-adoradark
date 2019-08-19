@@ -26,8 +26,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
     <!-- Quick and dirty styling...added by akshaal -->
     <style>
-      .dokuwiki .tool__bar {
+      .dokuwiki .tool__bar img {
         filter: invert(100%);
+      }
+
+      dokuwiki .search_hit {
+        background-color: #228;
       }
 
       .dokuwiki input.missing {
@@ -40,9 +44,10 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         white-space: pre;
       }
 
-      .dokuwiki button {
+      .dokuwiki button, .dokuwiki input[type=submit] {
         background-color: #004;
         color: white;
+        background-image: none;
       }
 
       .dokuwiki textarea[disabled], input[disabled] {
