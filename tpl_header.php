@@ -7,11 +7,11 @@
 if (!defined('DOKU_INC')) die();
 ?>
 
-<!-- ********** HEADER ********** -->a
+<!-- ********** HEADER ********** -->
 <div id="dokuwiki__header" style="padding-bottom: 0; padding-top: 0"><div class="pad group">
     <?php tpl_includeFile('header.html') ?>
 
-    <div class="tools group" style="white-space: nowrap; width: 100%; display: flex;">
+    <div class="tools group" style="white-space: nowrap; width: 100%; display: flex; margin-bottom: 4px;">
         <?php tpl_searchform(); ?>
 
         <div id="dokuwiki__usertools" style="position: static;">
