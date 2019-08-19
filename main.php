@@ -26,6 +26,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
     <!-- Quick and dirty styling...added by akshaal -->
     <style>
+      .dokuwiki textarea.edit, input {
+        background: black;
+        color: white;
+        white-space: pre;
+      }
+
       .handsontable th, .handsontable td {
         border-right: 1px solid #636363;
         border-bottom: 1px solid #636363;
