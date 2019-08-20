@@ -110,11 +110,12 @@ input[type='checkbox'], input[type="radio"] {
     appearance: none;
     outline: 2px solid lightblue;
     box-shadow: none;
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     line-height: 1em;
     color: white;
     background-color: black;
+    font-weight: bold;
 }
 
 input[type='checkbox']:checked:after, input[type="radio"]:checked:after {
