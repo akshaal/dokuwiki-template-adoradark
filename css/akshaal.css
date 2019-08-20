@@ -99,3 +99,24 @@ dokuwiki .search_hit {
     background: #636363;
     color: #999;
 }
+
+input[type='checkbox'], input[type="radio"] {
+    width: 1em !important;
+    height: 1em !important;
+    margin: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: 2px solid lightblue;
+    box-shadow: none;
+    font-size: 2em;
+    text-align: center;
+    line-height: 1em;
+    color: white;
+    background-color: black;
+}
+
+input[type='checkbox']:checked:after, input[type="radio"]:checked:after {
+    content: 'X';
+}
