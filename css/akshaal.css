@@ -6,6 +6,17 @@ dokuwiki .search_hit {
     background-color: #228;
 }
 
+.dokuwiki .page h3 {
+  margin-top: 30px;
+}
+
+.dokuwiki .page h2 {
+  margin-top: 50px;
+  font-weight: bolder;
+  border-top: 1px #aaa dashed;
+  padding-top: 15px;
+}
+
 .dokuwiki input.missing {
     background-color: #400;
 }
@@ -120,4 +131,35 @@ input[type='checkbox'], input[type="radio"] {
 
 input[type='checkbox']:checked:after, input[type="radio"]:checked:after {
     content: 'X';
+}
+
+.dokuwiki form.changes li .sizechange.positive {
+    background-color: #163;
+    font-weight: bold;
+}
+
+.dokuwiki form.changes li .sizechange.negative {
+    background-color: #833;
+    font-weight: bold;
+}
+
+.dokuwiki table.diff .diff-addedline {
+    background-color: #131;
+    border-left: 1px solid #0F0;
+    border-right: 1px solid #0F0
+}
+
+.dokuwiki table.diff .diff-deletedline {
+    background-color: #411;
+    border-left: 1px solid #F00;
+    border-right: 1px solid #F00
+}
+
+.dokuwiki table.diff th, .dokuwiki table.diff td {
+    color: #AAF
+}
+
+input, textarea, button, select, optgroup, option, keygen, output, meter, progress {
+    color: #FFF;
+    background-color: #333;
 }
