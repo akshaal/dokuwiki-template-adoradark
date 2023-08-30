@@ -143,13 +143,13 @@ input[type='checkbox']:checked:after, input[type="radio"]:checked:after {
     font-weight: bold;
 }
 
-.dokuwiki table.diff .diff-addedline {
+.dokuwiki table.diff .diff-addedline, .dokuwiki table.diff td.diff-addedline strong {
     background-color: #131;
     border-left: 1px solid #0F0;
     border-right: 1px solid #0F0
 }
 
-.dokuwiki table.diff .diff-deletedline {
+.dokuwiki table.diff .diff-deletedline, .dokuwiki table.diff td.diff-deletedline strong {
     background-color: #411;
     border-left: 1px solid #F00;
     border-right: 1px solid #F00
